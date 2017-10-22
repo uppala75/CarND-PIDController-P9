@@ -15,7 +15,7 @@ One could manually tune the Kp, Ki & Kd values with trail and error but it would
 
 I used the table below to experiment with different values of Ku & Pu to arrive at the final values of Kp, Ki, & Kd.
 |   Ku   |   Pu   |    Comments     |
-|:----------------:|:-------------:|:---------------------------------------------------------------------------------:|
+|:----------------:|:-------------:|:----------------------------------------------------------------------------------------:|
 |2|100|Wheels turn really fast. Really fast response|
 |1|100|Completes a lap but response is still very fast|
 |0.5|100|Better than previous but still fast response|
