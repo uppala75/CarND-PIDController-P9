@@ -1,11 +1,14 @@
 # PID Controller Project:
 The goal for this project is to develop a PID controller algorithm for a car to drive around a track in a simulator while staying within the lane. This is done by calculating the steering angle that is proportional to the Cross Track Error (CTE), which is the lateral distance between the car and the reference trajectory. A PID controller is comprised of three components, the Proportional (P) component, the Integral (I) component, & the D (Derivative component). A brief discussion on the effect of each of these terms on the steering angle ensues below.
 
-Proportional component: The proportional term, when used by itself to calculate the steering angle, sets a steering angle that is proportional to the CTE. However, the end result is a steering angle which oscillates around the reference trajectory. The proportional coefficient (Kp) determines how fast the car oscillates(or overshoots) around the reference trajectory.
+### Proportional component: 
+The proportional term, when used by itself to calculate the steering angle, sets a steering angle that is proportional to the CTE. However, the end result is a steering angle which oscillates around the reference trajectory. The proportional coefficient (Kp) determines how fast the car oscillates(or overshoots) around the reference trajectory.
 
-Derivative component: The derivative component uses a rate of change of error to reduce the overshoot caused by the proportional component. This derivative coefficient (Kd) term is used to optimize how far the car overshoots from the reference trajectory.
+### Derivative component: 
+The derivative component uses a rate of change of error to reduce the overshoot caused by the proportional component. This derivative coefficient (Kd) term is used to optimize how far the car overshoots from the reference trajectory.
 
-Integral component: Over time, the steering angle accrues errors due to systematic bias which could drive the car out of the track eventually, but not immediately. The integral component fixes this problem. As this component impacts the error over a period of time, the integral coefficient (Ki) should be carefully optimized in small steps as it has a large impact on the overall performance.
+### Integral component: 
+Over time, the steering angle accrues errors due to systematic bias which could drive the car out of the track eventually, but not immediately. The integral component fixes this problem. As this component impacts the error over a period of time, the integral coefficient (Ki) should be carefully optimized in small steps as it has a large impact on the overall performance.
 
 One could manually tune the Kp, Ki & Kd values with trail and error but it would take a lot of time to get the car to drive around the track smoothly. However, this process could be sped up by understanding the dependencies of the Kp, Ki & Kd on each other. By using Ziegler-Nichols technique (https://www.thorlabs.com/tutorials.cfm?tabID=5dfca308-d07e-46c9-baa0-4defc5c40c3e), I used the table below to calculate the Kp, Ki, & Kd terms by choosing only two parameters (Ku & Pu). I set the integral and derivative gain to zero and increased the proportional gain (Ku) until the circuit starts to oscillate with a period(Pu). 
 
@@ -41,6 +44,7 @@ I used the table below to experiment with different values of Ku & Pu to arrive 
 |0.145|125|Completes laps without a problem. Final solution|
 
 I arrived at the final solution using Ku & Pu of 0.145 & 125 as shown in table above, which translate to the following Kp, Ki & Kd values:
+
 |   Control Type   |       Kp      |       Ki       |       Kd       |
 |:----------------:|:-------------:|:--------------:|:--------------:|
 |PID|0.087|0.001392|1.359375|
