@@ -14,6 +14,7 @@ One could manually tune the Kp, Ki & Kd values with trail and error but it would
 |PID|0.60*Ku|2*Kp/Pu|Kp*Pu/8|
 
 I used the table below to experiment with different values of Ku & Pu to arrive at the final values of Kp, Ki, & Kd.
+
 |   Ku   |   Pu   |    Comments     |
 |:----------------:|:-------------:|:----------------------------------------------------------------------------------------:|
 |2|100|Wheels turn really fast. Really fast response|
