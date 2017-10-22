@@ -1,5 +1,10 @@
 # PID Controller Project:
-The goal for this project is to develop a PID controller algorithm for a car to drive around a track in a simulator while staying within the lane. This is done by calculating the steering angle that is proportional to the Cross Track Error (CTE), which is the lateral distance between the car and the reference trajectory. A PID controller is comprised of three components, the Proportional (P) component, the Integral (I) component, & the D (Derivative component). A brief discussion on the effect of each of these terms on the steering angle ensues below.
+The goal for this project is to develop a PID controller algorithm for a car to drive around a track in a simulator while staying within the lane. This is done by calculating the steering angle that is proportional to the Cross Track Error (CTE), which is the lateral distance between the car and the reference trajectory. 
+
+The equation for the PID controller is given by:
+![png](./pid.png)
+
+A PID controller is comprised of three components, the Proportional (P) component, the Integral (I) component, & the D (Derivative component). A brief discussion on the effect of each of these terms on the steering angle ensues below.
 
 ### Proportional component: 
 The proportional term, when used by itself to calculate the steering angle, sets a steering angle that is proportional to the CTE. However, the end result is a steering angle which oscillates around the reference trajectory. The proportional coefficient (Kp) determines how fast the car oscillates(or overshoots) around the reference trajectory.
