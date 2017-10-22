@@ -5,18 +5,18 @@ The goal for this project is to develop a PID controller algorithm for a car to 
 The proportional term, when used by itself to calculate the steering angle, sets a steering angle that is proportional to the CTE. However, the end result is a steering angle which oscillates around the reference trajectory. The proportional coefficient (Kp) determines how fast the car oscillates(or overshoots) around the reference trajectory.
 
 ### Derivative component: 
-The derivative component uses a rate of change of error to reduce the overshoot caused by the proportional component. This derivative coefficient (Kd) term is used to optimize how far the car overshoots from the reference trajectory.
+The derivative component uses a rate of change of error to reduce the overshoot caused by the proportional component. This derivative coefficient (Kd) term is used to optimize how far the car overshoots (also known as oscillation amplitude) from the reference trajectory.
 
 ### Integral component: 
 Over time, the steering angle accrues errors due to systematic bias which could drive the car out of the track eventually, but not immediately. The integral component fixes this problem. As this component impacts the error over a period of time, the integral coefficient (Ki) should be carefully optimized in small steps as it has a large impact on the overall performance.
 
-One could manually tune the Kp, Ki & Kd values with trail and error but it would take a lot of time to get the car to drive around the track smoothly. However, this process could be sped up by understanding the dependencies of the Kp, Ki & Kd on each other. By using Ziegler-Nichols technique (https://www.thorlabs.com/tutorials.cfm?tabID=5dfca308-d07e-46c9-baa0-4defc5c40c3e), I used the table below to calculate the Kp, Ki, & Kd terms by choosing only two parameters (Ku & Pu). I set the integral and derivative gain to zero and increased the proportional gain (Ku) until the circuit starts to oscillate with a period(Pu). 
+One could manually tune the Kp, Ki & Kd values with trail and error but it would take a lot of time to get the car to drive around the track smoothly. However, this process could be sped up by understanding the dependencies of the Kp, Ki & Kd on each other. By using Ziegler-Nichols technique (https://www.thorlabs.com/tutorials.cfm?tabID=5dfca308-d07e-46c9-baa0-4defc5c40c3e), I used the table below to calculate the Kp, Ki, & Kd terms by choosing only two parameters (Ku & Pu). I set the integral and derivative gain to zero and increased the proportional gain (Ku) until the car starts to oscillate with a period(Pu). 
 
 |   Control Type   |       Kp      |       Ki       |       Kd       |
 |:----------------:|:-------------:|:--------------:|:--------------:|
 |PID|0.60*Ku|2*Kp/Pu|Kp*Pu/8|
 
-I used the table below to experiment with different values of Ku & Pu to arrive at the final values of Kp, Ki, & Kd.
+I used the table below to experiment with different values of Ku & Pu to arrive at the final optimal values of Kp, Ki, & Kd.
 
 |   Ku   |   Pu   |    Comments     |
 |:----------------:|:-------------:|:----------------------------------------------------------------------------------------:|
