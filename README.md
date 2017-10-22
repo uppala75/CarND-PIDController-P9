@@ -58,6 +58,10 @@ I arrived at the final solution using Ku & Pu of 0.145 & 125 as shown in table a
 
 My solution works fine for a speed of 60mph which can be observed in the simulator. I am confident that this solution can further be improved at even higher speeds with more tuning. Another point to note is that I used a separate PID instance to control the throttle and maintain a constant speed, which made it easier to tune the parameters.
 
+### References:
+Image source: Udacity
+Ziegler-Nichols method: https://www.thorlabs.com/tutorials.cfm?tabID=5dfca308-d07e-46c9-baa0-4defc5c40c3e
+
 ## Dependencies
 
 * cmake >= 3.5
