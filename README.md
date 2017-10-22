@@ -39,11 +39,11 @@ I used the table below to experiment with different values of Ku & Pu to arrive 
 |0.14|110|Better than previous. Can damp oscillations further|
 |0.14|115|Still need to try and get inside lines on turn 3|
 |0.13|115|Goes out of lane|
-|0.14|120|Completes laps. Try and get to drive inside lane on turn 3|
-|0.14|125|Completes laps. Try and get to drive inside lane on turn 3|
+|0.14|120|Completes laps. Try and get to drive inside lane even further on turn 3|
+|0.14|125|Completes laps. Try and get to drive inside lane even further on turn 3|
 |0.145|125|Completes laps without a problem. Final solution|
 
-I arrived at the final solution using Ku & Pu of 0.145 & 125 as shown in table above, which translate to the following Kp, Ki & Kd values:
+I arrived at the final solution using Ku & Pu of 0.145 & 125 as shown in table above, which translate to the following Kp, Ki & Kd values by using the formulae in the first table:
 
 |   Control Type   |       Kp      |       Ki       |       Kd       |
 |:----------------:|:-------------:|:--------------:|:--------------:|
